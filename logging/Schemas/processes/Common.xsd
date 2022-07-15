@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.tibco.com/Common" elementFormDefault="qualified"
+	targetNamespace="http://www.tibco.com/Common">
+
+	<simpleType name="LogLevelType">
+
+		<restriction base="string">
+
+			<enumeration value="INFO" />
+
+			<enumeration value="DEBUG" />
+
+			<enumeration value="ERROR" />
+
+			<enumeration value="WARNING" />
+
+		</restriction>
+	</simpleType>
+
+	<complexType name="KVPairType">
+
+		<sequence>
+
+			<element name="key" type="string" />
+
+			<element name="value" type="string" />
+
+		</sequence>
+
+	</complexType>
+
+	<complexType name="KVPairsType">
+		<sequence>
+			<element name="KVPair" type="tns:KVPairType" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="MessageMappingType">
+		<sequence>
+			<element name="fields" type="string" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="PhaseType">
+		<restriction base="string">
+			<enumeration value="InvokeStart"></enumeration>
+			<enumeration value="InvokeEnd"></enumeration>
+			<enumeration value="Generic"></enumeration>
+			<enumeration value="ProcessStart"></enumeration>
+			<enumeration value="ProcessEnd"></enumeration>
+		</restriction>
+	</simpleType>
+</schema>

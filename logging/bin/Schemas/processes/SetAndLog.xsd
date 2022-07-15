@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:Q1="http://www.tibco.com/Common"
+    xmlns:tns="http://www.tibco.com/SetAndLog" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/SetAndLog">
+    <import namespace="http://www.tibco.com/Common" schemaLocation="Common.xsd" />
+    <element name="SetAndLog" type="tns:SetAndLogType" />
+    <complexType name="SetAndLogType">
+        <sequence>
+            <element name="Header" type="tns:HeaderType" />
+            <element name="Input" type="tns:InputType" />
+        </sequence>
+    </complexType>
+    <complexType name="HeaderType">
+        <sequence>
+            <element name="correlationId" type="string" />
+            <element name="trackingId" type="string" />
+            <element name="sessionId" type="string" />
+            <element minOccurs="0" name="sender" type="string" />
+            <element minOccurs="0" name="contextParams" type="Q1:KVPairsType"></element>
+            <element minOccurs="0" name="serviceScope" type="string" />
+        </sequence>
+    </complexType>
+    <complexType name="InputType">
+        <sequence>
+            <element minOccurs="0" name="loggerName" type="string" />
+            <element minOccurs="0" name="targetSystem" type="string" />
+            <element name="processName" type="string" />
+            <element name="logLevel" type="Q1:LogLevelType" />
+            <element name="message" type="string" />
+            <element name="jobId" type="string" />
+            <element name="processInstanceId" type="string" />
+            <element name="phase" type="Q1:PhaseType"></element>
+            <element minOccurs="0" name="additionalParams" type="Q1:KVPairsType"></element>
+        </sequence>
+    </complexType>
+    <element name="LogMessage" type="Q1:MessageMappingType" />
+</schema>

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logging Module
+Bundle-SymbolicName: logging
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-Edition: bwcf
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+TIBCO-BW-SharedModule: META-INF/module.bwm
+TIBCO-BW-Version: 2.7.1 V73 2022-02-11
+Automatic-Module-Name: logging
+Provide-Capability: com.tibco.bw.module; name="logging"; version:Version="1.0.0",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/Jobs",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/SetAndLog",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/Common",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/Log",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/ExceptionLog",
+ com.tibco.bw.processes; name="logging.task",
+ com.tibco.bw.processes; name="bin.Processes.logging.task"
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
+ com.tibco.bw.palette; filter:="(name=bw.generalactivities)"
